@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Gardian Novandri - Data Analyst Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a1128;
+            --gold: #ffc800;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 17, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 200, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 3px solid var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .badge span:first-child {
+            color: var(--gold);
+        }
+
+        .hero-name {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-name .highlight {
+            color: var(--gold);
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-tagline .highlight {
+            color: var(--gold);
+        }
+
+        .scroll-indicator {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .scroll-arrow {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .scroll-arrow::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            transform: rotate(45deg);
+            margin-top: -3px;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, #ffdb4d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid var(--white);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About Section */
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: inline-block;
+            border: 3px solid var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .section-header span:first-child {
+            color: var(--gold);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text h2 .highlight {
+            color: var(--gold);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-text {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: transparent;
+            border-color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .skill-category h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .skill-item span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Background Section */
+        .background-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .education-item,
+        .experience-item {
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .item-content h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .item-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .item-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+        }
+
+        .item-meta {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .background-section h2 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Projects Section */
+        .projects-list {
+            margin-top: 3rem;
+        }
+
+        .project-item {
+            margin-bottom: 4rem;
+        }
+
+        .project-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--white);
+            display: inline-block;
+            margin-right: 2rem;
+            vertical-align: top;
+            line-height: 1;
+        }
+
+        .project-title {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 0.5rem;
+        }
+
+        .project-title h3 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .project-image {
+            width: 100%;
+            background: #1a2b4a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-meta {
+            margin-top: 2rem;
+        }
+
+        .project-meta p {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-meta strong {
+            color: var(--gold);
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 50px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .project-btn:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .contact-content h2 .highlight {
+            color: var(--gold);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-item strong {
+            color: var(--gold);
+            min-width: 200px;
+            text-align: right;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .about-content,
+            .background-grid,
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-name {
+                font-size: 3rem;
+            }
+
+            .profile-circle {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-images {
+                grid-template-columns: 1fr;
+            }
+
+            .project-number {
+                font-size: 3rem;
+            }
+
+            .project-title h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skill">Skill</a></li>
+                <li><a href="#background">Background</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="badge">
+                    <span>DATA ANALYST</span> PORTFOLIO
+                </div>
+                <h1 class="hero-name">
+                    TANMOY<br>
+                    <span class="highlight">GHATAK</span><br>
+                    
+                </h1>
+                <p class="hero-tagline">
+                    I help people finding <span class="highlight">insights</span><br>
+                    through <span class="highlight">data</span>
+                </p>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>    
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-circle">
+                    <!-- Profile image placeholder - replace with actual image -->
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--gold) 0%, #ffdb4d 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--navy);">
+                        MG
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <span>About</span> Me
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Hello,<br>I'm <span class="highlight">Gardi!</span></h2>
+                <p>
+                    <span class="highlight-text">Data Reporting / Analyst</span> and <span class="highlight-text">Certified Banking Generalist</span> with a proven track record in various analytical roles, showcasing expertise in end-to-end business processes within the Banking / Financial Industry. Proficient in <span class="highlight-text">SQL, Python, Google Sheets, Microsoft Excel, Statistics, Tableau, and Google Looker Studio</span> for comprehensive data analysis and visualization. Comfortable with end-to-end data analysis, data processing, dashboard / daily reporting creation, and strategic thinking to drive informed decision-making.
+                </p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon">📧</a>
+                <a href="#" class="social-icon">💼</a>
+                <a href="#" class="social-icon">📊</a>
+            </div>
+        </div>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Download CV</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skill">
+        <div class="section-header">
+            <span>Technical</span> Skills
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Programming<br>Languanges</h4>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">🗄️</div>
+                        <span>SQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🐍</div>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Data Analytic<br>Tools</h4>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">📊</div>
+                        <span>Microsoft Excel</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">📋</div>
+                        <span>Google Sheet</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔍</div>
+                        <span>Google BigQuery</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">💻</div>
+                        <span>Visual Code Studio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Data Visualization<br>Tools</h4>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">📈</div>
+                        <span>Tableau</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔗</div>
+                        <span>Looker Studio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Data Analytic<br>Methods</h4>
+                <ul class="skill-list">
+                    <li>EDA</li>
+                    <li>Segmentation / Clustering</li>
+                    <li>Cohort</li>
+                    <li>Linear Regression</li>
+                    <li>Logistic Regression</li>
+                    <li>Statistic</li>
+                    <li>A/B Testing</li>
+                    <li>ANOVA</li>
+                    <li>(Post-Hoc) T-Test</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Section -->
+    <section id="background">
+        <div class="section-header">
+            <span>Education & Experience</span> Background
+        </div>
+        <div class="background-grid">
+            <div class="education-section">
+                <h2>EDUCATION</h2>
+                <div class="education-item">
+                    <div class="company-logo">R</div>
+                    <div class="item-content">
+                        <h3>RevoU</h3>
+                        <h4>Full-Stack Data Analytics (2023)</h4>
+                        <p class="item-meta">Grade: 100 / 100</p>
+                        <p>Attended the mini course and intensive data analyics course with 110+ hours of lectures of 6 modules of Data Analytics Program</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="company-logo">L</div>
+                    <div class="item-content">
+                        <h3>LPPI</h3>
+                        <h4>Bank BTN's Officer Development Program (ODP) (2017)</h4>
+                        <p>Intensive Management Trainee training program in Banking Industry consist of In-class Training and On the Job Training</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="company-logo">🎓</div>
+                    <div class="item-content">
+                        <h3>Universitas Brawijaya</h3>
+                        <h4>Architecture Engineering (2011)</h4>
+                        <p class="item-meta">Bachelor Degree, Cumulative GPA: 3.17 / 4.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-section">
+                <h2>EXPERIENCE</h2>
+                <div class="experience-item">
+                    <div class="company-logo">BJ</div>
+                    <div class="item-content">
+                        <h3>Bank Jago</h3>
+                        <h4>AML Reporting Specialist (Full time, 2024 - Present)</h4>
+                        <p>Conduct data analysis to support Anti Money Laundering decision-making process also created ad-hoc and periodic regulatory Anti Money Laundering reporting</p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="company-logo">R</div>
+                    <div class="item-content">
+                        <h3>RevoU</h3>
+                        <h4>Data Analyst Mentor (Part-time, 2024)</h4>
+                        <p>Conducted mentoring session every week for 48 students to optimize their data analytics learning, utilizing tools such as SQL, Tableau, Python, Google Studio, and Google Sheets</p>
+                        <h4>Data Analyst Associate (Virtual Internship, 2023 - 2024)</h4>
+                        <p>Executed hands on of stealth digital marketing dataset as part of Data Analytics Virtual Internship with RevoU x Zurich</p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="company-logo">BTN</div>
+                    <div class="item-content">
+                        <h3>Bank Tabungan Negara (Persero) Tbk</h3>
+                        <h4>Loan Monitoring and Restructuring Analyst (Fulltime, 2022)</h4>
+                        <h4>Commercial Asset Management Analyst (Full time, 2018 - 2022)</h4>
+                        <h4>Commercial Loan Analyst (Full time, 2017-2018)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <span>Notable</span> Projects
+        </div>
+        <div class="projects-list">
+            <!-- Project 1 -->
+            <div class="project-item">
+                <div>
+                    <span class="project-number">01</span>
+                    <div class="project-title">
+                        <h3>UBER PRICING OPTIMIZATION<br>IN NEW YORK CITY</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-images">
+                        <div class="project-image" style="background: linear-gradient(45deg, #ff9a00, #ffd700); grid-column: 1; grid-row: 1 / 3; height: 400px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                    </div>
+                    <div class="project-description">
+                        <p>
+                            An end-to-end analysis about <span class="highlight-text">finding out the best pricing model</span> for uber booking in New York City <span class="highlight-text">to increase the revenue</span> by doing <span class="highlight-text">Linear Regression</span> to find out the impact of each variables of uber booking, evaluate the existing pricing model (High Fare and Discounted Fare application), do impact analysis and give recommendation of the best uber booking pricing. This analysis <span class="highlight-text">resulting a better model of Uber Pricing</span> that is proven to <span class="highlight-text">increase 11.5% revenue.</span>
+                        </p>
+                        <div class="project-meta">
+                            <p><strong>Tools:</strong> Python (Google Collab), Tableau</p>
+                            <p><strong>Analysis:</strong> EDA, Linear Regression</p>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn">Full Deck</a>
+                            <a href="#" class="project-btn">Tableau Dashboard</a>
+                            <a href="#" class="project-btn">Google Collab Python Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-item">
+                <div>
+                    <span class="project-number">02</span>
+                    <div class="project-title">
+                        <h3>IBM EMPLOYEE ATTRITION<br>PREDICTION AND STRATEGY 2023</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-images">
+                        <div class="project-image" style="background: linear-gradient(45deg, #2c3e50, #3498db); grid-column: 1; grid-row: 1 / 3; height: 400px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                    </div>
+                    <div class="project-description">
+                        <p>
+                            A project focusing on <span class="highlight-text">how to decrease employee attrition</span> rate of IBM company by doing <span class="highlight-text">Logistic Regression</span> to predict the existing employee attrition, planning strategy to make a better and fair condition of the employee, and find out how much the strategy can affect the decreasing of employee attrition rate. This analysis <span class="highlight-text">resulting strategy to decrease employee attrition</span> that is predicted to <span class="highlight-text">decrease 3.41% employee attrition.</span>
+                        </p>
+                        <div class="project-meta">
+                            <p><strong>Tools:</strong> Python (Google Collab), Tableau</p>
+                            <p><strong>Analysis:</strong> EDA, Logistic Regression</p>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn">Full Deck</a>
+                            <a href="#" class="project-btn">Tableau Dashboard</a>
+                            <a href="#" class="project-btn">Google Collab Python Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-item">
+                <div>
+                    <span class="project-number">03</span>
+                    <div class="project-title">
+                        <h3>FAST FOOD MARKETING CAMPAIGN<br>A/B TESTING</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-images">
+                        <div class="project-image" style="background: linear-gradient(45deg, #c0392b, #e74c3c); grid-column: 1; grid-row: 1 / 3; height: 400px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                    </div>
+                    <div class="project-description">
+                        <p>
+                            A project with the main goal of <span class="highlight-text">determining the most profitable campaign</span> in a fast food chain <span class="highlight-text">by doing A/B Testing.</span> The marketing team runs 3 type of campaigns and the stores area categorized by 3 type of market sizes. <span class="highlight-text">ANOVA</span> test is chosen for the <span class="highlight-text">statistical and hypothesis test,</span> and <span class="highlight-text">Post-Hoc T-test</span> is applied after. This Analysis <span class="highlight-text">resulting of the chosen campaign that is significantly profitable</span> than the others.
+                        </p>
+                        <div class="project-meta">
+                            <p><strong>Tools:</strong> Google Sheet / Excel</p>
+                            <p><strong>Analysis:</strong> EDA, Statistic, A/B Testing (ANOVA & Post Hoc T-test)</p>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn">Full Deck</a>
+                            <a href="#" class="project-btn">Google Sheet (Analysis & Dashboard)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-item">
+                <div>
+                    <span class="project-number">04</span>
+                    <div class="project-title">
+                        <h3>E-COMMERCE COHORT ANALYSIS<br>AND RFM SEGMENTATION</h3>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-images">
+                        <div class="project-image" style="background: linear-gradient(45deg, #27ae60, #2ecc71); grid-column: 1; grid-row: 1 / 3; height: 400px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                        <div class="project-image" style="background: #1a2b4a; height: 190px;"></div>
+                    </div>
+                    <div class="project-description">
+                        <p>
+                            A project to <span class="highlight-text">boost the retention rate</span> of an <span class="highlight-text">E-Commerce company</span> by doing clustering with <span class="highlight-text">RFM Segmentation</span> to strategize the treatments for each segments in order to retain them as our customers and do the <span class="highlight-text">Cohort Analysis</span> to find out the maximum range of CLTV, CAC, and CRC to be used by Marketing Team. This analysis <span class="highlight-text">resulting treatment strategies to increase the retention rate</span> for each RFM Segments and expected to <span class="highlight-text">increase retention rate 5.8% - 23.4%.</span>
+                        </p>
+                        <div class="project-meta">
+                            <p><strong>Tools:</strong> SQL (BigQuery), Python (Google Collab), Google Sheets, Google Looker Studio</p>
+                            <p><strong>Analysis:</strong> EDA, RFM Segmentation, Cohort Analysis</p>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn">Full Deck</a>
+                            <a href="#" class="project-btn">Google Collab Python Code (Data Cleaning)</a>
+                            <a href="#" class="project-btn">Google Looker (Sales_Dashboard)</a>
+                            <a href="#" class="project-btn">Google Looker (Cohort Dashboard)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <span>Contact</span> Info
+        </div>
+        <div class="contact-content">
+            <h2>Let's <span class="highlight">connect</span> and<br>work together!</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Phone (Whatsapp)</strong>
+                    <a href="tel:+6282234641064">+62 822 3464 1064</a>
+                    <div class="contact-icon">📱</div>
+                </div>
+                <div class="contact-item">
+                    <strong>E-mail</strong>
+                    <a href="mailto:mgnovandri@gmail.com">mgnovandri@gmail.com</a>
+                    <div class="contact-icon">✉️</div>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://linkedin.com/in/mgnovandri/">linkedin.com/in/mgnovandri/</a>
+                    <div class="contact-icon">💼</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
